@@ -1,0 +1,8 @@
+{
+  "monitored_folder": null,
+  "extraction_folder": null,
+  "extraction_mode": "subfolder",
+  "post_extraction_action": "recycle",
+  "backup_folder_name": "Zip_Backup",
+  "enabled": true
+}

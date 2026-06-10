@@ -1,0 +1,8 @@
+app.lock
+extractor.log
+err.log
+assets/icon.png
+__pycache__/
+*.pyc
+.venv/
+venv/
