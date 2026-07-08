@@ -1,6 +1,6 @@
 {
-  "monitored_folder": null,
-  "extraction_folder": null,
+  "monitored_folder": "C:\\Users\\junio\\Downloads",
+  "extraction_folder": "C:\\Users\\junio\\Downloads",
   "extraction_mode": "subfolder",
   "post_extraction_action": "recycle",
   "backup_folder_name": "Zip_Backup",
