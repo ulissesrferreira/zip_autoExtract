@@ -518,9 +518,20 @@ class ZipAutoExtractorApp:
         self.icon.run()
 
 if __name__ == "__main__":
-    # Garante que só há uma instância rodando no Windows
-    # Usamos um lock simples de arquivo para detecção de instância única
-    lock_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "app.lock")
+    # Garante que só há uma instância rodando no Windows usando LOCALAPPDATA (evita conflitos no OneDrive)
+    import tempfile
+    lock_dir = os.path.join(os.environ.get('LOCALAPPDATA', tempfile.gettempdir()), "ZipAutoExtract")
+    os.makedirs(lock_dir, exist_ok=True)
+    lock_file = os.path.join(lock_dir, "app.lock")
+    
+    # Limpa arquivo lock antigo da pasta do projeto para evitar erros do OneDrive
+    old_lock_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "app.lock")
+    if os.path.exists(old_lock_file):
+        try:
+            os.remove(old_lock_file)
+        except Exception:
+            pass
+
     try:
         if os.path.exists(lock_file):
             try:
